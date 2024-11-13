@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html land="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>地理を極めよう</title>
+    <link rel="stylesheet" href="geo.css">
+</head>
+<body>
+<h1>ケッペンクイズ</h1>
+<div>
+<details open>
+    <p>Startボタンを押すと下の白地図上にピン📍が表示されます。
+        <br>選択肢の中からその地点の気候区分を当ててください。
+    </p>
+    <p>ルール
+        <br>・連続正解数を競います
+    </p>
+</details>
+</div>
+
+<div>
+<input type="button" id="start" value="Start" 
+style="width:64px;height:32px;bottom:5px;position:relative">
+</div>
+
+<div>
+    <p id="score">Score=0</p>
+</div>
+
+<div>
+    <p id="problem">第0問</p>
+</div>
+
+<div class="map">
+<img src="images/world.jpg" width=350px>
+<img src="images/pin.png" width=10px style="margin:0px 0px 150px -200px">
+</div>
+
+<div class="answer_button">
+<input type="button" id="choice1" class="choice" value="Df">
+<input type="button" id="choice2" class="choice" value="Df">
+<input type="button" id="choice3" class="choice" value="Df">
+<input type="button" id="choice4" class="choice" value="Df">
+<input type="button" id="choice5" class="choice" value="Df">
+</div>
+</body>
+</html>
