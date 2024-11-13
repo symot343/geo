@@ -32,19 +32,9 @@ style="width:64px;height:32px;bottom:5px;position:relative">
 </div>
 
 <div class="map">
-<img src="world.jpg" id="map">
+<img class="world" src="world.jpg" id="map">
 <img class="absolute" src="pin.png" id="pin">
 </div>
-
-<script>
-    const w = window.innerWidth;
-    const h = window.innerHeight;
-    let map = document.getElementById("map");
-    console.log(w);
-    map.width = w*0.95;
-    let pin = document.getElementById("pin");
-    pin.width = w * 0.02;
-</script>
 
 <div class="answer_button">
 <input type="button" id="choice1" class="choice" value="Aw">
@@ -53,6 +43,64 @@ style="width:64px;height:32px;bottom:5px;position:relative">
 <input type="button" id="choice4" class="choice" value="Df">
 <input type="button" id="choice5" class="choice" value="Df">
 </div>
+
+<script>
+    //正解の気候を求める
+    let answer_c = "Cs";
+    //選択肢に色を塗る
+    function color_button(id,c){
+        c_c = {
+            "Af":[252,76,76,1],
+            "Am":[249,142,136,0],
+            "Aw":[254,204,201,0],
+            "BW":[211,182,119,0],
+            "BS":[253,253,135,0],
+            "Cs":[252,165,34,0],
+            "Cw":[212,237,60,0],
+            "Cfa":[165,255,1,0],
+            "Cfb":[17,208,78,0],
+            "Df":[229,184,220,0],
+            "Dw":[160,96,183,1],
+            "ET":[154,215,218,0],
+            "EF":[64,183,239,1]
+        }
+        let b = document.getElementById(id);
+        let color = "rgb(" + c_c[c][0] + "," + c_c[c][1] + "," + c_c[c][2] + ")";
+        b.style.backgroundColor = color;
+        b.value = c;
+        if (c_c[c][3]){
+            b.style.color = "white";
+        }
+    };
+    let climate_l = ["Af","Am","Aw","BW","BS","Cs","Cw","Cfa","Cfb","Df","Dw","ET","EF"]
+    let c_n = { "Af":0, "Am":1, "Aw":2, "BW":3, "BS":4, "Cs":5, "Cw":6, "Cfa":7, 
+    "Cfb":8, "Df":9, "Dw":10, "ET":11, "EF":12 }
+    console.log(`answer is ${answer_c}, ${c_n[answer_c]}.`)
+    //乱数４つと正解１つを混ぜるんだ
+    let nl = [0,1,2,3,4,5,6,7,8,9,10,11,12];
+    //正解は消しておく
+    nl.splice(c_n[answer_c],1);
+    let rn = [0,0,0,0];
+    for (let i=0;i<=3;i++){
+        let num = Math.floor(Math.random()*(12-i));
+        rn[i] = nl[num];
+        nl.splice(num,1);
+    }
+    rn.push(c_n[answer_c]);
+    let start = Math.floor(Math.random() * 6);
+    let choice_l = [];
+    for (let i=0;i<=4;i++){
+        choice_l.push(rn[(start+i)%5]);
+    }
+    console.log(choice_l);
+
+    //色塗り開始
+    color_button("choice1",climate_l[choice_l[0]]);
+    color_button("choice2", climate_l[choice_l[1]]);
+    color_button("choice3", climate_l[choice_l[2]]);
+    color_button("choice4", climate_l[choice_l[3]]);
+    color_button("choice5", climate_l[choice_l[4]]);
+</script>
 
 </body>
 </html>
