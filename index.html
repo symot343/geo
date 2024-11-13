@@ -32,16 +32,27 @@ style="width:64px;height:32px;bottom:5px;position:relative">
 </div>
 
 <div class="map">
-<img src="world.jpg" width=350px>
-<img src="pin.png" width=10px style="margin:0px 0px 150px -200px">
+<img src="world.jpg" id="map">
+<img class="absolute" src="pin.png" id="pin">
 </div>
 
+<script>
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    let map = document.getElementById("map");
+    console.log(w);
+    map.width = w*0.95;
+    let pin = document.getElementById("pin");
+    pin.width = w * 0.02;
+</script>
+
 <div class="answer_button">
-<input type="button" id="choice1" class="choice" value="Df">
+<input type="button" id="choice1" class="choice" value="Aw">
 <input type="button" id="choice2" class="choice" value="Df">
 <input type="button" id="choice3" class="choice" value="Df">
 <input type="button" id="choice4" class="choice" value="Df">
 <input type="button" id="choice5" class="choice" value="Df">
 </div>
+
 </body>
 </html>

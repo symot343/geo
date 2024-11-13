@@ -1,6 +1,21 @@
-.choice{
-    width:50px;
-    height:50px;
-    margin:5px;
-    cursor:pointer;
+.map{
+    position:relative;
+    width:500px;
+}
+
+.absolute{
+    position:absolute;
+    top:0%;
+    left:2%;
+}
+
+.choice {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.answer_button{
+    text-align:center;
 }
