@@ -1,10 +1,10 @@
 .map{
     position:relative;
-    width:500px;
+    width:1000px;
 }
 
 .world{
-    width:500px;
+    width:800px;
 }
 
 .absolute{
@@ -15,9 +15,9 @@
 }
 
 .choice {
-    width: 40px;
-    height: 40px;
-    margin: 5px;
+    width: 80px;
+    height: 80px;
+    margin: 10px;
     cursor: pointer;
     border: 1px solid black;
 }
