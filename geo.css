@@ -4,7 +4,7 @@
 }
 
 .world{
-    width:350px;
+    width:500px;
 }
 
 .absolute{
@@ -19,12 +19,10 @@
     height: 40px;
     margin: 5px;
     cursor: pointer;
+    border: 1px solid black;
 }
 
 .answer_button{
-    text-align:center;
+    margin-left: 30px;
 }
 
-#choice1{
-    background:purple;
-}

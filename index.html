@@ -13,7 +13,8 @@
         <br>選択肢の中からその地点の気候区分を当ててください。
     </p>
     <p>ルール
-        <br>・連続正解数を競います
+        <br>・連続正解数を競います。
+        <br>・気候情報は以下のサイト掲載の地図を基にしています。
     </p>
 </details>
 </div>
@@ -35,6 +36,11 @@ style="width:64px;height:32px;bottom:5px;position:relative">
 <img class="world" src="world.jpg" id="map">
 <img class="absolute" src="pin.png" id="pin">
 </div>
+
+<div>
+    <p>【選択肢】</p>
+</div>
+
 
 <div class="answer_button">
 <input type="button" id="choice1" class="choice" value="Aw">
@@ -70,6 +76,8 @@ style="width:64px;height:32px;bottom:5px;position:relative">
         b.value = c;
         if (c_c[c][3]){
             b.style.color = "white";
+        }else{
+            b.style.color = "black";
         }
     };
     let climate_l = ["Af","Am","Aw","BW","BS","Cs","Cw","Cfa","Cfb","Df","Dw","ET","EF"]
