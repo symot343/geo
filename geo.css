@@ -1,10 +1,14 @@
+.explanation{
+    font-size:15px;
+}
+
 .map{
     position:relative;
     width:400px;
 }
 
 .world{
-    width:400px;
+    width:390px;
 }
 
 .absolute{
