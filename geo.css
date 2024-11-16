@@ -1,10 +1,10 @@
 .map{
     position:relative;
-    width:1000px;
+    width:400px;
 }
 
 .world{
-    width:800px;
+    width:400px;
 }
 
 .absolute{
@@ -15,17 +15,15 @@
 }
 
 .choice {
-    width: 80px;
-    height: 80px;
-    margin: 10px;
+    width: 40px;
+    height: 40px;
+    margin: 5px;
     cursor: pointer;
     border: 1px solid black;
+    font-size: 15px;
 }
 
 .answer_button{
     margin-left: 30px;
 }
 
-.space{
-    height: 1000px;
-}
