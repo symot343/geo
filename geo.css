@@ -25,6 +25,8 @@
     cursor: pointer;
     border: 1px solid black;
     font-size: 15px;
+    justify-content: center;
+    align-items: center;
 }
 
 .answer_button{
