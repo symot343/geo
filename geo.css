@@ -32,6 +32,9 @@
     font-size: 15px;
     text-align: center;
     position:relative;
+    display: flex;
+    justify-content:center;
+    align-items:center;
 }
 
 .answer_button{
