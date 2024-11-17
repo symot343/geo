@@ -4,7 +4,7 @@
 
 .map{
     position:relative;
-    width:390px;
+    width:370px;
 }
 
 .world{
@@ -14,8 +14,8 @@
 #pin{
     position:absolute;
     width:10px;
-    top:-4px;
-    left:6px;
+    top:0px;
+    left:0px;
 }
 
 .next_button{
