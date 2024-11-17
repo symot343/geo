@@ -18484,15 +18484,15 @@ style="width:64px;height:32px;bottom:5px;position:relative">
     }
     function choiceButtonClick(id){
         if (gameover_status==true){
-            alert("リロードしてください")
+            alert("連続記録は止まりました。リロードしてください")
             return;
         }
         if (start_status==false){
-            alert("まだ始まってないよ")
+            alert("はやと地理ですね")
             return;
         }
         if (next_status==true){
-            alert("もう正解したよ")
+            alert("正解済みです")
             return;
         }
         let the_choice = document.getElementById(id);
