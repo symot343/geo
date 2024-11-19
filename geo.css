@@ -2,6 +2,11 @@
     font-size:15px;
 }
 
+#status{
+    margin-left:300px;
+    margin-top:-40px;
+}
+
 .map{
     position:relative;
     width:370px;
@@ -31,7 +36,8 @@
     border: 1px solid black;
     font-size: 15px;
     color:black;
-    position:relative;
+    text-align:center;
+    padding:3px;
 }
 
 .answer_button{

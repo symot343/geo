@@ -25,6 +25,7 @@
 <input type="button" id="start" value="Start" 
 style="width:64px;height:32px;bottom:5px;position:relative">
 <script>
+    let statusbox = document.getElementById("status");
     let problem_list = [[72, 97, 76, "EF"],
         [102, 135, 76, "ET"],
         [144, 153, 76, "ET"],
@@ -18350,6 +18351,7 @@ style="width:64px;height:32px;bottom:5px;position:relative">
         }
         else{
             start_status = true;
+            status.textContent = "回答中";
             giveQuestion();
         }
     }
@@ -18360,6 +18362,7 @@ style="width:64px;height:32px;bottom:5px;position:relative">
 
 <div>
     <p id="problem">第0問</p>
+    <p id="status">開始前</p>
 </div>
 
 <div class="map">
