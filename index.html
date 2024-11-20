@@ -19,6 +19,12 @@
         <br><a href="https://juken-geography.com/systematic/koppen-kikoukubun/">受験地理B短期マスター塾　ケッペンの気候区分を覚える</a>
     </p>
 </details>
+<script>
+    //はじめに定義しておきたい
+    let name = "guest";
+    let score = 0;
+    let ranking = {};
+</script>
 </div>
 
 <div>
@@ -18421,6 +18427,7 @@ style="width:64px;height:32px;bottom:5px;position:relative">
         let str = problem_num_string.textContent
         let prob_num = Number(str.substring(1,str.length-1))+1;
         problem_num_string.textContent = "第"+String(prob_num)+"問"
+        score++;
         //描写開始
         let pin = document.getElementById("pin");
         let real_x = 6+(x-60) * (370/2400);
@@ -18430,23 +18437,23 @@ style="width:64px;height:32px;bottom:5px;position:relative">
         makeChoice();
     }
     
+    c_c = {
+            "Af": [252, 76, 76, 1],
+            "Am": [249, 142, 136, 0],
+            "Aw": [254, 204, 201, 0],
+            "BW": [211, 182, 119, 0],
+            "BS": [253, 253, 135, 0],
+            "Cs": [252, 165, 34, 0],
+            "Cw": [212, 237, 60, 0],
+            "Cfa": [165, 255, 1, 0],
+            "Cfb": [17, 208, 78, 0],
+            "Df": [229, 184, 220, 0],
+            "Dw": [160, 96, 183, 1],
+            "ET": [154, 215, 218, 0],
+            "EF": [64, 183, 239, 1]
+        }
     //選択肢に色を塗る
     function color_button(id,c){
-        c_c = {
-            "Af":[252,76,76,1],
-            "Am":[249,142,136,0],
-            "Aw":[254,204,201,0],
-            "BW":[211,182,119,0],
-            "BS":[253,253,135,0],
-            "Cs":[252,165,34,0],
-            "Cw":[212,237,60,0],
-            "Cfa":[165,255,1,0],
-            "Cfb":[17,208,78,0],
-            "Df":[229,184,220,0],
-            "Dw":[160,96,183,1],
-            "ET":[154,215,218,0],
-            "EF":[64,183,239,1]
-        }
         let b = document.getElementById(id);
         let color = "rgb(" + c_c[c][0] + "," + c_c[c][1] + "," + c_c[c][2] + ")";
         b.style.backgroundColor = color;
@@ -18500,6 +18507,11 @@ style="width:64px;height:32px;bottom:5px;position:relative">
         }
         let the_choice = document.getElementById(id);
         let guess = the_choice.value;
+        the_choice.style.background = "white";
+        let color = "rgb(" + c_c[guess][0] + "," + c_c[guess][1] + "," + c_c[guess][2] + ")";
+        the_choice.style.borderColor = color;
+        the_choice.style.color = "black";
+        the_choice.style.borderWidth = "2px";
         if (guess==answer_c){
             alert("正解です")
             next_status = true;
@@ -18508,9 +18520,65 @@ style="width:64px;height:32px;bottom:5px;position:relative">
             let send = "不正解、答えは"+answer_c+"でした"
             alert(send)
             gameover_status = true;
+            gameOver();
         }
     }
 </script>
+
+<script>
+    fetch('https://script.google.com/macros/s/AKfycbxmSv3sKK1ZSoNLsC5xoeTTTywvEHv-6Xa5DWYYwJiHhLc5MeHtFrFViRD3bpDgo-Xy5A/exec')
+        .then(response => response.json())
+        .then(data => {
+            data.sort((a, b) => b.score - a.score);
+            console.log(data); // シートのデータがJSON形式で表示されます
+            ranking = data;
+        })
+        .catch(error => console.error('Error fetching data:', error));
+
+    
+    function gameOver(){
+        fetch('https://script.google.com/macros/s/AKfycbxmSv3sKK1ZSoNLsC5xoeTTTywvEHv-6Xa5DWYYwJiHhLc5MeHtFrFViRD3bpDgo-Xy5A/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name, score })
+            })
+                .then(response => response.text())
+                .then(data => {
+                    alert('Score submitted successfully!');
+                });
+    }
+</script>
+
+<div>
+    <p>👑👑👑ランキング👑👑👑</p>
+</div>
+
+<div class="table">
+    <table>
+        <tr class="rowA">
+            <th>順位</th> <th>名前</th> <th>得点</th>
+        </tr>
+        <tr class="rowB">
+            <td>順位</td>
+            <td>名前</td>
+            <td>得点</td>
+        </tr>
+        <tr class="rowA">
+            <td>順位</td>
+            <td>名前</td>
+            <td>得点</td>
+        </tr>
+        <tr class="rowB">
+            <td>順位</td>
+            <td>名前</td>
+            <td>得点</td>
+        </tr>
+    </table>
+
+</div>
 
 </body>
 </html>

@@ -3,7 +3,7 @@
 }
 
 #status{
-    margin-left:300px;
+    text-align:right;
     margin-top:-40px;
 }
 
@@ -25,7 +25,7 @@
 
 .next_button{
     margin-top: 10px;
-    margin-left: 300px;
+    text-align:right;
 }
 
 .choice {
@@ -44,3 +44,21 @@
     margin-left: 30px;
 }
 
+table{
+    width:370px;
+}
+
+table th,td{
+    padding:5px 2px;
+}
+
+
+.rowA{
+    background-color:#ffe6e6;
+    border:solid 2px #ef534f;
+}
+
+.rowB{
+    background-color:#fdf5e0;
+    border:solid 2px #fcd471;
+}
