@@ -9,7 +9,8 @@
 <body>
 <h1>ケッペンクイズ</h1>
 <div class="explanation">
-<details open>
+<details close>
+    <summary>ゲーム説明</summary>
     <p>Startボタンを押すと下の白地図上にピン📍が表示されます。
         <br>選択肢の中からその地点の気候区分を当ててください。
     </p>
@@ -23,12 +24,15 @@
 
 <div>
 <p>名前入力欄</p>
+<p class="expl">必ず開始前に入力してください。</p>
 <input type="text" id="name_input" value="guest">
 </div>
 
 <div>
 <input type="button" id="start" value="Start" 
 style="width:64px;height:32px;bottom:5px;position:relative">
+    <p id="problem">第0問</p>
+    <p id="status">開始前</p>
 <script>
     //はじめに定義しておきたい
     let name = localStorage.getItem("myname");
@@ -18370,6 +18374,8 @@ style="width:64px;height:32px;bottom:5px;position:relative">
         }
         else{
             start_status = true;
+            let status = document.getElementById("status");
+            status.textContent = "回答中";
             let name_box = document.getElementById("name_input");
             name = name_box.value;
             localStorage.setItem("myname",name)
@@ -18383,10 +18389,7 @@ style="width:64px;height:32px;bottom:5px;position:relative">
 </script>
 </div>
 
-<div>
-    <p id="problem">第0問</p>
-    <p id="status">開始前</p>
-</div>
+
 
 <div class="map">
 <img class="world" src="world.jpg" id="map">
@@ -18562,6 +18565,8 @@ style="width:64px;height:32px;bottom:5px;position:relative">
 
     
     function gameOver(){
+        let status = document.getElementById("status");
+        status.textContent = "終了済";
         fetch('https://script.google.com/macros/s/AKfycbxmSv3sKK1ZSoNLsC5xoeTTTywvEHv-6Xa5DWYYwJiHhLc5MeHtFrFViRD3bpDgo-Xy5A/exec', {
                 method: 'POST',
                 mode: 'no-cors',
