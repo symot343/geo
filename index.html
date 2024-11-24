@@ -35,6 +35,9 @@ style="width:64px;height:32px;bottom:5px;position:relative">
     if (name == null) {
         name = "guest";
     }
+    if (name == ""){
+        name = "guest";
+    }
     let name_box = document.getElementById("name_input");
     name_box.value = name;
     let score = 0;
