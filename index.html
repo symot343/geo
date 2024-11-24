@@ -19,17 +19,27 @@
         <br><a href="https://juken-geography.com/systematic/koppen-kikoukubun/">受験地理B短期マスター塾　ケッペンの気候区分を覚える</a>
     </p>
 </details>
-<script>
-    //はじめに定義しておきたい
-    let name = "guest";
-    let score = 0;
-    let ranking = {};
-</script>
+</div>
+
+<div>
+<p>名前入力欄</p>
+<input type="text" id="name_input" value="guest">
 </div>
 
 <div>
 <input type="button" id="start" value="Start" 
 style="width:64px;height:32px;bottom:5px;position:relative">
+<script>
+    //はじめに定義しておきたい
+    let name = localStorage.getItem("myname");
+    if (name == null) {
+        name = "guest";
+    }
+    let name_box = document.getElementById("name_input");
+    name_box.value = name;
+    let score = 0;
+    let ranking = {};
+</script>
 <script>
     let statusbox = document.getElementById("status");
     let problem_list = [[72, 97, 76, "EF"],
@@ -18357,6 +18367,10 @@ style="width:64px;height:32px;bottom:5px;position:relative">
         }
         else{
             start_status = true;
+            let name_box = document.getElementById("name_input");
+            name = name_box.value;
+            localStorage.setItem("myname",name)
+            console.log(name);
             status.textContent = "回答中";
             giveQuestion();
         }
@@ -18463,6 +18477,7 @@ style="width:64px;height:32px;bottom:5px;position:relative">
         }else{
             b.style.color = "black";
         }
+        b.style.border = "1px solid black";
     };
     function makeChoice(){
         let climate_l = ["Af","Am","Aw","BW","BS","Cs","Cw","Cfa","Cfb","Df","Dw","ET","EF"]
@@ -18532,6 +18547,13 @@ style="width:64px;height:32px;bottom:5px;position:relative">
             data.sort((a, b) => b.score - a.score);
             console.log(data); // シートのデータがJSON形式で表示されます
             ranking = data;
+            //ここでランキングの表示までやってしまう
+            for (let i=1;i<=10;i++){
+                let the_name = document.getElementById("name"+String(i));
+                the_name.textContent = data[i-1].name;
+                let the_score = document.getElementById("score"+String(i));
+                the_score.textContent = data[i - 1].score;
+            }
         })
         .catch(error => console.error('Error fetching data:', error));
 
@@ -18562,19 +18584,54 @@ style="width:64px;height:32px;bottom:5px;position:relative">
             <th>順位</th> <th>名前</th> <th>得点</th>
         </tr>
         <tr class="rowB">
-            <td>順位</td>
-            <td>名前</td>
-            <td>得点</td>
+            <td >1</td>
+            <td id="name1">名前</td>
+            <td id="score1">得点</td>
         </tr>
         <tr class="rowA">
-            <td>順位</td>
-            <td>名前</td>
-            <td>得点</td>
+            <td>2</td>
+            <td id="name2">名前</td>
+            <td id="score2">得点</td>
         </tr>
         <tr class="rowB">
-            <td>順位</td>
-            <td>名前</td>
-            <td>得点</td>
+            <td>3</td>
+            <td id="name3">名前</td>
+            <td id="score3">得点</td>
+        </tr>
+        <tr class="rowA">
+            <td>4</td>
+            <td id="name4">名前</td>
+            <td id="score4">得点</td>
+        </tr>
+        <tr class="rowB">
+            <td>5</td>
+            <td id="name5">名前</td>
+            <td id="score5">得点</td>
+        </tr>
+        <tr class="rowA">
+            <td>6</td>
+            <td id="name6">名前</td>
+            <td id="score6">得点</td>
+        </tr>
+        <tr class="rowB">
+            <td>7</td>
+            <td id="name7">名前</td>
+            <td id="score7">得点</td>
+        </tr>
+        <tr class="rowA">
+            <td>8</td>
+            <td id="name8">名前</td>
+            <td id="score8">得点</td>
+        </tr>
+        <tr class="rowB">
+            <td>9</td>
+            <td id="name9">名前</td>
+            <td id="score9">得点</td>
+        </tr>
+        <tr class="rowA">
+            <td>10</td>
+            <td id="name10">名前</td>
+            <td id="score10">得点</td>
         </tr>
     </table>
 

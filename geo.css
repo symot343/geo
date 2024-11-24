@@ -7,6 +7,16 @@
     margin-top:-40px;
 }
 
+#name_input{
+    margin-top:-10px;
+    padding:5px 2px;
+    width:150px;
+}
+
+#start{
+    margin-top:15px;
+}
+
 .map{
     position:relative;
     width:370px;
@@ -45,20 +55,23 @@
 }
 
 table{
+    text-align: center;
     width:370px;
 }
 
 table th,td{
-    padding:5px 2px;
+    padding:2px 2px;
+    font-size:10px;
 }
 
+table td{
+    text-align: center;
+}
 
 .rowA{
-    background-color:#ffe6e6;
-    border:solid 2px #ef534f;
+    background-color:#dedede;
 }
 
 .rowB{
-    background-color:#fdf5e0;
-    border:solid 2px #fcd471;
+    background-color:#ffffff;
 }
